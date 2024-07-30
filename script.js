@@ -22,8 +22,17 @@ function updateOutput() {
     outputDocument.close();
 }
 
+function clearEditor(id) {
+    document.getElementById(id).value = '';
+    updateOutput();
+}
+
 document.getElementById('htmlCode').addEventListener('input', updateOutput);
 document.getElementById('cssCode').addEventListener('input', updateOutput);
 document.getElementById('jsCode').addEventListener('input', updateOutput);
+
+document.getElementById('clearHtml').addEventListener('click', () => clearEditor('htmlCode'));
+document.getElementById('clearCss').addEventListener('click', () => clearEditor('cssCode'));
+document.getElementById('clearJs').addEventListener('click', () => clearEditor('jsCode'));
 
 updateOutput();
